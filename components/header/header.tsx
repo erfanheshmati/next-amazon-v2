@@ -3,9 +3,9 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header>
+    <header className="bg-base-300">
       <nav>
-        <div className="navbar justify-between bg-base-300">
+        <div className="navbar justify-between max-w-7xl mx-auto px-0">
           <Link href="/" className="btn btn-ghost text-lg">
             Next Amazon V2
           </Link>
