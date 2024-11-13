@@ -3,12 +3,23 @@ import { data } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
+// Dynamic metadata function
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const product = data.products.find((x) => x.slug === params.slug);
+
+  return {
+    title: product ? product.name : "Product not found",
+  };
+}
+
 export default function ProductDetails({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }) {
   const product = data.products.find((x) => x.slug === params.slug);
 
