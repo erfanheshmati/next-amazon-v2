@@ -2,12 +2,12 @@
 
 import useCartService from "@/lib/hooks/useCartStore";
 import { OrderItem } from "@/lib/models/OrderModel";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function AddToCart({ item }: { item: OrderItem }) {
-  const router = useRouter();
-  const { items, increase } = useCartService();
+  // const router = useRouter();
+  const { items, increase, decrease } = useCartService();
   const [existItem, setExistItem] = useState<OrderItem | undefined>();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
 
   return existItem ? (
     <div>
-      <button type="button" className="btn">
+      <button type="button" className="btn" onClick={() => decrease(existItem)}>
         -
       </button>
       <span className="px-2">{existItem.qty}</span>
